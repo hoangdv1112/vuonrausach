@@ -18,11 +18,11 @@ Ext.define('VRS.modules.product.view.ProductController', {
     handlerEdit: function(grid, rowIndex, colIndex) {
         var me = this,
             record = grid.getStore().getAt(rowIndex);
-            me.createDialog(record);
+        me.createDialog(record);
     },
     onContextEdit: function(menu, item, e, eOpts) {
-                    // var rec = view.getSelectionModel().getSelection()[0];
-        
+        // var rec = view.getSelectionModel().getSelection()[0];
+
         console.log(e)
     },
 
@@ -92,7 +92,7 @@ Ext.define('VRS.modules.product.view.ProductController', {
         var grid = this.lookupReference('ProductGrid');
         return grid.getSelection();
     },
-    
+
     // Create dialog form
     createDialog: function(record) {
         var me = this;
@@ -106,7 +106,7 @@ Ext.define('VRS.modules.product.view.ProductController', {
                     title: record ? 'Edit: "' + record.get('name') + '"' : 'Add product',
                     rec: record // || true
                 },
-                links: { 
+                links: {
                     /*rec: record || {
                         type: 'VRS.modules.product.model.Product',
                         create: true

@@ -1,5 +1,5 @@
 $app-name:  dynamic( 'VRS' );
-$image-search-path: 'E:/localhost/vuonrausach/build/development/VRS/classic/resources';
+$image-search-path: 'D:/localhost/vuonrausach/build/development/VRS/classic/resources';
 $theme-name:  dynamic( 'theme-triton' );
 $include-ext-abstractcomponent: dynamic(true);;
 $include-ext-abstractcontainer: dynamic(true);;
@@ -903,6 +903,7 @@ $include-vrs-view-main-footer: dynamic(true);;
 $include-vrs-view-main-main: dynamic(true);;
 $include-vrs-view-main-panel: dynamic(true);;
 $include-vrs-view-product-product: dynamic(true);;
+$include-vrs-view-product-productform: dynamic(true);;
 $include-vrs-view-product-productgrid: dynamic(true);;
 $output-paths: ("path": "../../classic/resources", "shared": "../../resources");
 

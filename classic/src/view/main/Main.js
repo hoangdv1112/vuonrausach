@@ -16,61 +16,57 @@ Ext.define('VRS.view.main.Main', {
         'Ext.list.Tree',
 
         'VRS.modules.main.view.MainController',
-        'VRS.modules.main.view.MainModel'
+        'VRS.modules.main.view.MainModel',
+        'VRS.modules.menu.store.MainNavigationTree'
     ],
 
     controller: 'main',
     viewModel: 'main',
 
-    
+
     layout: {
         type: 'border'
     },
-    items: [
-        {
-            region: 'center',
-            xtype: 'mainpanel'
+    items: [{
+        region: 'center',
+        xtype: 'mainpanel'
+    }, {
+        region: 'north',
+        xtype: 'appheader'
+    }, {
+        region: 'south',
+        xtype: 'appfooter'
+    }, {
+        region: 'west',
+        title: 'DASHBOARD',
+        width: 250,
+        split: true,
+        collapsible: true,
+        collapsed: false,
+        padding: '0 0 0 0',
+        layout: {
+            type: 'vbox',
+            align: 'stretch',
+            pack: 'start'
         },
-        {
-            region: 'north',
-            xtype: 'appheader'
+        scrollable: 'y',
+        header: {
+            height: 54
         },
-        {
-            region: 'south',
-            xtype: 'appfooter'
-        },
-        {
-            region: 'west',
-            title: 'DASHBOARD',
-            width: 250,
-            split: true,
-            collapsible: true,
-            collapsed: false,
-            padding: '0 0 0 0',
-            layout:{
-                type: 'vbox',
-                align: 'stretch',
-                pack: 'start'
+        items: [{
+            xtype: 'treelist',
+            reference: 'navigationTreeList',
+            itemId: 'navigationTreeList',
+            ui: 'main-navigation',
+            store: {
+                type: 'MainNavigationTree'
             },
-            scrollable: 'y',
-            header:{
-                height: 54
-            },
-            items: [{
-                xtype: 'treelist',
-                reference: 'navigationTreeList',
-                itemId: 'navigationTreeList',
-                ui: 'main-navigation',
-                store: {
-                    type: 'MainNavigationTree'
-                },
-                expanderFirst: false,
-                expanderOnly: false,
-                listeners: {
-                    selectionchange: 'onNavigationTreeSelectionChange'
-                }
-            }]
-            
-        }
-    ]
+            expanderFirst: false,
+            expanderOnly: false,
+            listeners: {
+                selectionchange: 'onNavigationTreeSelectionChange'
+            }
+        }]
+
+    }]
 });

@@ -25,6 +25,18 @@ class CategoryController extends Controller {
 	
     }
 
+    /**
+     * Get list categories
+     *
+     * @return Response paginated categories
+     */
+    public function all() {
+    $response = Category::all();
+
+    return $this->response->array(['data' => $response], new CategoryTransformer)
+        ->withHeader('Access-Control-Allow-Origin', '*')
+        ->withHeader('Access-Control-Allow-Credentials', 'true');
+    }
 
     /**
      * Get list categories
@@ -176,7 +188,7 @@ class CategoryController extends Controller {
             "status_code" => 404,
         ], 404);
 
-		$category->articles()->delete();
+		$category->products()->delete();
 		$result = $category->delete();
 
 		return $this->response->array([

@@ -18,11 +18,11 @@ Ext.define('VRS.modules.category.view.CategoryController', {
     handlerEdit: function(grid, rowIndex, colIndex) {
         var me = this,
             record = grid.getStore().getAt(rowIndex);
-            me.createDialog(record);
+        me.createDialog(record);
     },
     onContextEdit: function(menu, item, e, eOpts) {
-                    // var rec = view.getSelectionModel().getSelection()[0];
-        
+        // var rec = view.getSelectionModel().getSelection()[0];
+
         console.log(e)
     },
 
@@ -92,7 +92,7 @@ Ext.define('VRS.modules.category.view.CategoryController', {
         var grid = this.lookupReference('CategoryGrid');
         return grid.getSelection();
     },
-    
+
     // Create dialog form
     createDialog: function(record) {
         var me = this;
@@ -106,7 +106,7 @@ Ext.define('VRS.modules.category.view.CategoryController', {
                     title: record ? 'Edit: "' + record.get('name') + '"' : 'Add Category',
                     rec: record // || true
                 },
-                links: { 
+                links: {
                     /*rec: record || {
                         type: 'VRS.modules.category.model.Category',
                         create: true
@@ -134,7 +134,6 @@ Ext.define('VRS.modules.category.view.CategoryController', {
             // Submit is Update
 
             if (isEdit) {
-                console.log(rec.get('status'), rec);
                 Ext.Ajax.request({
                     url: VRS.modules.util.common.Util.baseUrl + '/categories/' + rec.get('id'),
                     method: 'PUT',
@@ -159,7 +158,7 @@ Ext.define('VRS.modules.category.view.CategoryController', {
                         name: rec.name,
                         description: rec.description,
                         status: rec.status,
-                        user_id: 1,
+                        user_id: 1
                     },
                     scope: me,
                     success: 'onSaveSuccess',

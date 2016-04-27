@@ -13,6 +13,7 @@
 
 $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', function ($api) {
+    $api->get('all-categories', 'App\Modules\Category\Controllers\Api\CategoryController@all');
     $api->get('categories', 'App\Modules\Category\Controllers\Api\CategoryController@index');
     $api->post('categories', 'App\Modules\Category\Controllers\Api\CategoryController@store');
     $api->put('categories/{id}', 'App\Modules\Category\Controllers\Api\CategoryController@update');

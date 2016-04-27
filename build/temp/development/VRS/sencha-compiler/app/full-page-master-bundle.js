@@ -1,2 +1,2 @@
 // @tag full-page
-// @require E:\localhost\vuonrausach\app.js
+// @require D:\localhost\vuonrausach\app.js
